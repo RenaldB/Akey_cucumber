@@ -23,9 +23,9 @@ public class CocktailSteps {
 		order.declareTarget(juliette);  
 	}
 
-	@Then("there is no cocktail in the order")
-	public void there_is_no_cocktail_in_the_order() {
+	@Then("there is (\\d+) cocktails in the order")
+	public void there_is_nb_cocktails_in_the_order(int nbCocktails) {
 		List<String> cocktails =  order.getCocktails();
-		assertEquals(0, cocktails.size());
-	}
+	       	assertEquals(nbCocktails, cocktails.size());
+	} 
 }
