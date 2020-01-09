@@ -28,4 +28,14 @@ public class CocktailSteps {
 		List<String> cocktails =  order.getCocktails();
 	       	assertEquals(nbCocktails, cocktails.size());
 	} 
+	
+	@When("a message saying \"([^\"]*)\" is added")
+	public void a_message_saying_is_added(String something) {
+		order.withMessage(something);
+	}
+
+	@Then("the ticket must say \"([^\"]*)\"")
+	public void the_ticket_must_say(String somethingElse) {
+		assertEquals(somethingElse, order.getTicketMessage());
+	}
 }
